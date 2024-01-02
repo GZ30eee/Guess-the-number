@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number Game</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+             background: url('bg2.svg') center/cover no-repeat;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #container {
+            background: linear-gradient(90deg, #262626 0%, #323334 100%);            padding: 20px;
+            border-radius: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        p {
+            color: #555;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 40px;
+            font-size: 16px;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        button {
+            background: linear-gradient(90deg, #9847F5 0%, #7799F9 100%);            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 40px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #result {
+            font-size: 15px;
+            margin-top: 20px;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        #result.correct {
+            color: #27ae60; /* Green color for correct guess */
+        }
+
+        #result.incorrect {
+            color: #c0392b; /* Red color for incorrect guess */
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <h1>Guess the Number Game</h1>
+    <p>Guess a number between 1 and 10:</p>
+    <input type="number" id="guessInput" min="1" max="10">
+    <button onclick="checkGuess()">Submit Guess</button>
+    <p id="result"></p>
+</div>
+
+<script>
+    let secretNumber = generateRandomNumber();
+
+    function generateRandomNumber() {
+        return Math.floor(Math.random() * 10) + 1;
+    }
+
+    function checkGuess() {
+        const userGuess = parseInt(document.getElementById('guessInput').value);
+        const resultElement = document.getElementById('result');
+
+        if (userGuess === secretNumber) {
+            displayResult("Congratulations! You guessed the correct number.", 'correct');
+        } else {
+            displayResult(`Sorry, try again. The correct number is ${secretNumber}.`, 'incorrect');
+        }
+
+        // Generate a new random number for the next round
+        secretNumber = generateRandomNumber();
+        document.getElementById('guessInput').value = '';
+
+        setTimeout(() => {
+            resultElement.className = ''; // Reset the class after a delay
+        }, 2000);
+    }
+
+    function displayResult(message, resultClass) {
+        const resultElement = document.getElementById('result');
+        resultElement.innerText = message;
+        resultElement.className = resultClass;
+    }
+</script>
+</body>
+</html>

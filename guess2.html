@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number Game</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+             background: url('bg2.svg') center/cover no-repeat;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #container {
+            background: linear-gradient(90deg, #262626 0%, #323334 100%);            padding: 20px;
+            border-radius: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        p {
+            color: #555;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #result {
+            font-size: 15px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        #result.correct {
+            color: #27ae60; /* Green color for correct guess */
+        }
+
+        #result.incorrect {
+            color: #c0392b; /* Red color for incorrect guess */
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <h1>Guess the Number Game</h1>
+    <p>Click a button to guess the number:</p>
+    <div>
+        <button onclick="checkGuess(1)">1</button>
+        <button onclick="checkGuess(2)">2</button>
+        <button onclick="checkGuess(3)">3</button>
+        <button onclick="checkGuess(4)">4</button>
+        <button onclick="checkGuess(5)">5</button>
+        <button onclick="checkGuess(6)">6</button>
+        <button onclick="checkGuess(7)">7</button>
+        <button onclick="checkGuess(8)">8</button>
+        <button onclick="checkGuess(9)">9</button>
+        <button onclick="checkGuess(10)">10</button>
+    </div>
+    <p id="result"></p>
+</div>
+
+<script>
+    let secretNumber = generateRandomNumber();
+
+    function generateRandomNumber() {
+        return Math.floor(Math.random() * 10) + 1;
+    }
+
+    function checkGuess(userGuess) {
+        const resultElement = document.getElementById('result');
+
+        if (userGuess === secretNumber) {
+            displayResult("Congratulations! You guessed the correct number.", 'correct');
+        } else {
+            displayResult(`Sorry, try again. The correct number is ${secretNumber}.`, 'incorrect');
+        }
+
+        // Generate a new random number for the next round
+        secretNumber = generateRandomNumber();
+
+        setTimeout(() => {
+            resultElement.className = ''; // Reset the class after a delay
+        }, 2000);
+    }
+
+    function displayResult(message, resultClass) {
+        const resultElement = document.getElementById('result');
+        resultElement.innerText = message;
+        resultElement.className = resultClass;
+    }
+</script>
+
+</body>
+</html>
