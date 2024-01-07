@@ -14,7 +14,7 @@ Welcome to the "Guess the Number Game" web application! This interactive game ad
 
 ## How to Use
 
-1. **Installation:** No installation is required. Simply include the provided files in your web project, and users can start playing immediately.
+1. **Installation:** No installation is required. Simply [click this link](https://gz30eee.github.io/Guess-the-number/root/main.html), and users can start playing immediately.
 
 2. **Customization:** Personalize the game by adjusting the background image, colors, and other visual elements. The code is well-commented for easy modification.
 
@@ -22,7 +22,7 @@ Welcome to the "Guess the Number Game" web application! This interactive game ad
 
 ## Files Included
 
-- `index.html`: The main HTML file containing the structure and content of the game.
+- `main.html`: The main HTML file containing the structure and content of the game.
 - `style.css`: The CSS file with styles to enhance the visual appearance of the game.
 - `script.js`: The JavaScript file with the game logic, including number generation and result handling.
 
@@ -32,7 +32,7 @@ Contributions to the project are welcome! If you have ideas for improvements or 
 
 ## Credits
 
-This web application is brought to you by [Your Name or Organization]. It's built using HTML, CSS, and JavaScript, following best practices for web development.
+This web application is brought to you by **Ghanshyamsinh Zala**. It's built using HTML, CSS, and JavaScript, following best practices for web development.
 
 ## License
 
