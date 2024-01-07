@@ -1,6 +1,6 @@
 body {
   font-family: "Poppins", sans-serif;
-  background: url("bg2.svg") center/cover no-repeat;
+  background: url("bg.svg") center/cover no-repeat;
   margin: 0;
   display: flex;
   justify-content: center;
@@ -15,6 +15,8 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease-in-out;
+  max-width: 700px;
+  width: 100%;
 }
 
 h1 {
@@ -48,9 +50,21 @@ button:hover {
 }
 
 #result.correct {
-  color: #27ae60; /* Green color for correct guess */
+  color: #27ae60;
 }
 
 #result.incorrect {
-  color: #c0392b; /* Red color for incorrect guess */
+  color: #c0392b; 
+}
+
+@media only screen and (max-width: 768px) {
+  #container {
+    padding: 15px;
+    border-radius: 20px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
 }
