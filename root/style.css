@@ -1,6 +1,7 @@
 body {
   font-family: "Poppins", sans-serif;
-  background: url("bg.svg") center/cover no-repeat;
+  background: url("../bg3.svg") center/cover no-repeat;
+  background-color: black;
   margin: 0;
   display: flex;
   justify-content: center;
@@ -39,8 +40,17 @@ button {
   transition: background-color 0.3s ease-in-out;
 }
 
+
 button:hover {
   background-color: #2980b9;
+}
+
+input[type="number"] {
+  padding: 10px;
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
 }
 
 #result {
@@ -53,7 +63,7 @@ button:hover {
   color: #27ae60;
 }
 
-#result.incorrect {
+#result.incorrect, #result.gameover {
   color: #c0392b; 
 }
 
@@ -61,9 +71,10 @@ button:hover {
   #container {
     padding: 15px;
     border-radius: 20px;
+    margin: 10px;
   }
 
-  button {
+  button, input[type="number"] {
     font-size: 14px;
     padding: 8px 16px;
   }
