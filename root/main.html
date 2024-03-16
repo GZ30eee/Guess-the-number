@@ -9,18 +9,17 @@
   <body>
     <div id="container">
       <h1>Guess the Number Game</h1>
-      <p>Click a button to guess the number:</p>
+      <p>Select difficulty:</p>
       <div>
-        <button onclick="checkGuess(1)">1</button>
-        <button onclick="checkGuess(2)">2</button>
-        <button onclick="checkGuess(3)">3</button>
-        <button onclick="checkGuess(4)">4</button>
-        <button onclick="checkGuess(5)">5</button>
-        <button onclick="checkGuess(6)">6</button>
-        <button onclick="checkGuess(7)">7</button>
-        <button onclick="checkGuess(8)">8</button>
-        <button onclick="checkGuess(9)">9</button>
-        <button onclick="checkGuess(10)">10</button>
+        <button id="easy" onclick="changeDifficulty('easy')">Easy</button>
+        <button id="medium" onclick="changeDifficulty('medium')">Medium</button>
+        <button id="hard" onclick="changeDifficulty('hard')">Hard</button>
+    </div>
+    
+      <p>Enter a number to guess:</p>
+      <div>
+        <input type="number" id="userGuess" min="1" max="10">
+        <button onclick="checkGuess(document.getElementById('userGuess').value)">Submit</button>
       </div>
       <p id="result"></p>
     </div>
